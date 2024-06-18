@@ -36,32 +36,34 @@ func main() {
 		fmt.Println("Enter number of tickets: ")
 		fmt.Scan(&userTickets)
 
-		remainingTickets = remainingTickets - userTickets
-		// bookings[0] = firstName + " " + lastName
-		bookings = append(bookings, firstName+" "+lastName)
+		if userTickets <= remainingTickets {
+			fmt.Printf("We only have %v tickets remaining, so you cant book %v ticktes\n", remainingTickets, userTickets)
+			continue
 
-		fmt.Printf("The whole slice: %v\n", bookings)
-		fmt.Printf("The first value: %v\n", bookings[0])
-		fmt.Printf("Slice type: %T\n", bookings)
-		fmt.Printf("Slice length: %v\n", len(bookings))
+			remainingTickets = remainingTickets - userTickets
+			// bookings[0] = firstName + " " + lastName
+			bookings = append(bookings, firstName+" "+lastName)
 
-		fmt.Printf("Thank you %v %v for booking %v tickets. You will recieve a confirmation email at %v\n", firstName, lastName, userTickets, email)
-		fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+			fmt.Printf("The whole slice: %v\n", bookings)
+			fmt.Printf("The first value: %v\n", bookings[0])
+			fmt.Printf("Slice type: %T\n", bookings)
+			fmt.Printf("Slice length: %v\n", len(bookings))
 
-		firstNames := []string{}
+			fmt.Printf("Thank you %v %v for booking %v tickets. You will recieve a confirmation email at %v\n", firstName, lastName, userTickets, email)
+			fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
 
-		for _, booking := range bookings {
-			var names = strings.Fields(booking)
-			firstNames = append(firstNames, names[0])
+			firstNames := []string{}
+
+			for _, booking := range bookings {
+				var names = strings.Fields(booking)
+				firstNames = append(firstNames, names[0])
+			}
+			fmt.Printf("The first names of bookings are %v\n", firstNames)
+		} else {
+			fmt.Printf("We only have %v tickets remaining, so you cant book %v ticktes\n", remainingTickets, userTickets)
+			continue
 		}
-		fmt.Printf("The first names of bookings are %v\n", firstNames)
 
-		noTicketsRemaining := remainingTickets == 0
-		if noTicketsRemaining {
-			// end program
-			fmt.Println("Our conference is booked out. Come back next year.")
-			break
-		}
 	}
 
 }
