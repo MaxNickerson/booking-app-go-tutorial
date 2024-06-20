@@ -42,7 +42,7 @@ func main() {
 
 		// isValidCity := city == "Singapore" || city == "London"
 
-		if  {
+		if isValidName && isValidEmail && isValidTicketNumber {
 
 			remainingTickets = remainingTickets - userTickets
 			// bookings[0] = firstName + " " + lastName
@@ -64,8 +64,19 @@ func main() {
 			}
 			fmt.Printf("The first names of bookings are %v\n", firstNames)
 		} else {
-			fmt.Printf("We only have %v tickets remaining, so you cant book %v ticktes\n", remainingTickets, userTickets)
-			continue
+			if !isValidName {
+				fmt.Println("first of last name entered is too short")
+			}
+
+			if !isValidEmail {
+				fmt.Println("email adress does not contain @")
+			}
+
+			if !isValidTicketNumber {
+				fmt.Println("number of tickets entered is invalid")
+			}
+			// fmt.Printf("Your input data is invalid, try again\n")
+
 		}
 
 	}
