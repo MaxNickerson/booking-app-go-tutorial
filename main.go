@@ -10,7 +10,8 @@ func main() {
 	const conferenceTickets int = 50
 	var remainingTickets uint = 50
 
-	fmt.Printf("Welcome to %v booking application\n", conferenceName)
+	greetUsers(conferenceName)
+
 	fmt.Printf("We have a total of %v tickets and %v are still available\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your tickets here to attend")
 
@@ -81,16 +82,20 @@ func main() {
 
 	}
 
-	city := "London"
+	// city := "London"
 
-	switch city {
-	case "New York":
-		// execute code for booking New York conference tickets
-	case "Singapore":
-	case "London":
+	// switch city {
+	// case "New York":
+	// 	// execute code for booking New York conference tickets
+	// case "Singapore":
+	// case "London":
 
-	default:
-		fmt.Print("No valid city selected")
+	// default:
+	// 	fmt.Print("No valid city selected")
 
-	}
+	// }
+}
+
+func greetUsers(conferenceName string) {
+	fmt.Printf("Welcome to %v booking application\n", conferenceName)
 }
